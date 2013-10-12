@@ -37,7 +37,12 @@ function submit() {
             printf("Connect failed: %s\n", $db->connect_error);
             exit();
         }
-        $ret = $db->query(postReplace($header["query"])) or print($this->db->error) && exit();
+        $db->query(postReplace($header["query"])) or print($this->db->error) && exit();
+    }
+    if (isset($header["php_exec"])) {
+        eval(postReplace($header["php_exec"]));
+        $ret = ob_get_clean();
+        $info_msg = str_replace("{{exec_php_output}}", $ret, $info_msg);
     }
 }
 
