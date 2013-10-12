@@ -8,7 +8,8 @@ So here's my quick and dirty script, that can be configured via a simple config.
 file.
 
 ##config.yaml
-'''YAML
+
+```yaml
     ## Config file.
     ## TODO add more info
     ---
@@ -28,9 +29,13 @@ file.
         ##Executed query. {{field_name}} is replaced with the field_name's field's actual value.
         ##Important: The values aren't escaped. Use it with care.
         query:
+      php_exec:
+        echo "Some php code"
       ##Information that is displayed after submitting a data set
       info: |
             Some text. {{field_name}} is replaced with the field_name's field's actual value.
+            {{exec_output}} is replaced with the output of the command execution via exec.
+            {{exec_php_output}} is replaced with the output of the php code via php_exec.
       ##simple passwort to restrict the usage of this form
       password: test
   fields:
@@ -40,7 +45,7 @@ file.
     [...]
     [last_field_name]:
         [...]
-'''
+```
 
 ###Fields
 Different types of fields are supported. Each field has title option which sets
