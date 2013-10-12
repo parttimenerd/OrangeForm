@@ -1,0 +1,16 @@
+## Config file.
+## See README.md for more informations.
+---
+header:
+  title: Test
+  description: descr...
+  theme: bootstrap
+  exec: echo "test input{{int_field}}"
+  info: |
+    Output: {{exec_output}}
+  password: test
+fields:
+  field:
+    title: Test field
+    type: textarea
+  
