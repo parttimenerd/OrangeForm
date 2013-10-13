@@ -1,0 +1,4 @@
+order allow,deny
+<Files ~ "\.yaml$">
+   allow from all
+</Files>
